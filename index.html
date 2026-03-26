@@ -1,95 +1,239 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portafolio — Yimmi Chautá</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background: #f7f7f7;
-            color: #222;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+            scroll-behavior: smooth;
         }
+
         header {
-            background: #1f2937;
+            background: linear-gradient(135deg, #1f2937, #3b82f6);
             color: white;
-            padding: 2rem;
+            padding: 3rem 1rem;
             text-align: center;
         }
-        h1 { margin: 0; }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 500;
+        }
+
         section {
             width: 90%;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 2rem auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
+
         h2 {
             border-left: 5px solid #3b82f6;
             padding-left: 10px;
         }
-        ul { line-height: 1.7; }
-        .contact a {
-            color: #2563eb;
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 8px;
+            margin: 3px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            background: #2563eb;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
             text-decoration: none;
+        }
+
+        /* DARK MODE */
+        .dark {
+            background: #0f172a;
+            color: #e5e7eb;
+        }
+
+        .dark .card {
+            background: #1e293b;
+        }
+
+        .dark .navbar {
+            background: #1e293b;
         }
     </style>
 </head>
+
 <body>
 
-<section>
-    <h2>Sobre mí</h2>
-    <p>
-        Analista de cadena de abastecimiento en transición al área de Data Science, con experiencia en análisis de datos,
-        modelamiento estadístico y herramientas como Python, SQL, Power BI y Qlik Sense. Interesado en transformar datos
-        en insights que generen valor para el negocio.
-    </p>
-</section>
+<nav class="navbar">
+    <a href="#sobre">Sobre mí</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#contacto">Contacto</a>
+</nav>
 
 <header>
     <h1>Portafolio Profesional — Yimmi Chautá</h1>
     <p>Data Analyst / Data Science Enthusiast</p>
+
+    <button onclick="toggleDarkMode()" class="btn">Modo oscuro</button>
 </header>
 
-<section>
-    <h2>Proyectos</h2>
-
-    <h3>1. Análisis Exploratorio de Datos del Transporte en Chicago</h3>
-    <ul>
-        <li>Limpieza y análisis de tres datasets relacionados con viajes en taxi.</li>
-        <li>Identificación de patrones de demanda por compañía y zonas de alta actividad.</li>
-        <li>Prueba de hipótesis sobre duración de viajes en condiciones lluviosas.</li>
-        <li>Visualización de tendencias clave para soporte de decisiones.</li>
-    </ul>
-
-    <p><a href="https://github.com/yimmichauta12345-commits/Proyecto-rutas-de-Chicago" target="_blank">🔗 Ver repositorio del proyecto</a></p>
-
-    <img src="images/images/Imagen%20proyecto%201.jpg" alt="Gráfico Top 10 barrios" 
-         style="width:100%; max-width:700px; display:block; margin:20px auto; border-radius:8px;">
-
-    <h3>2. Análisis de Ventas de Videojuegos por Consolas y Categorías</h3>
-    <ul>
-        <li>Análisis histórico de ventas globales de videojuegos.</li>
-        <li>Comparación entre consolas (PlayStation, Xbox, Nintendo, PC…).</li>
-        <li>Evaluación por géneros y regiones (NA, EU, JP, Global).</li>
-        <li>Visualizaciones con gráficos de barras, líneas, mapas de calor y boxplots.</li>
-    </ul>
-
-    <p><a href="https://github.com/yimmichauta12345-commits/Proyecto-consolas" target="_blank">🔗 Ver repositorio del proyecto</a></p>
-
-    <img src="images/images/Imagen%20proyecto%202.jpg" alt="Gráfico de ventas por año y plataforma" 
-         style="width:100%; max-width:900px; display:block; margin:20px auto; border-radius:8px;">
+<section id="sobre">
+    <h2>Sobre mí</h2>
+    <p>
+        Analista de cadena de abastecimiento en transición al área de Data Science,
+        con experiencia en análisis de datos, modelamiento estadístico y herramientas
+        como Python, SQL, Power BI y Qlik Sense.
+    </p>
 </section>
 
-<section class="contact">
+<section id="proyectos">
+    <h2>Proyectos</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>Transporte en Chicago</h3>
+
+            <p><strong>Problema:</strong> Identificar patrones de demanda.</p>
+            <p><strong>Solución:</strong> Análisis exploratorio + hipótesis.</p>
+            <p><strong>Resultado:</strong> Identificación de zonas clave.</p>
+
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">EDA</span>
+            </div>
+
+            <a class="btn" href="https://github.com/yimmichauta12345-commits/Proyecto-rutas-de-Chicago" target="_blank">
+                Ver en GitHub →
+            </a>
+
+            <img src="images/images/Imagen%20proyecto%201.jpg">
+        </div>
+
+        <div class="card">
+            <h3>Ventas de Videojuegos</h3>
+
+            <p><strong>Problema:</strong> Analizar ventas globales.</p>
+            <p><strong>Solución:</strong> Visualización y segmentación.</p>
+            <p><strong>Resultado:</strong> Comparación entre plataformas.</p>
+
+            <div>
+                <span class="tag">Python</span>
+                <span class="tag">Seaborn</span>
+                <span class="tag">Data Analysis</span>
+            </div>
+
+            <a class="btn" href="https://github.com/yimmichauta12345-commits/Proyecto-consolas" target="_blank">
+                Ver en GitHub →
+            </a>
+
+            <img src="images/images/Imagen%20proyecto%202.jpg">
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>Automatizaciones</h2>
+
+    <div class="card">
+        <h3>Automatización SAP</h3>
+
+        <p><strong>Problema:</strong> Procesos manuales repetitivos.</p>
+        <p><strong>Solución:</strong> Scripts en Python con SAP GUI.</p>
+        <p><strong>Impacto:</strong> Reducción de tiempos operativos.</p>
+
+        <div>
+            <span class="tag">Python</span>
+            <span class="tag">SAP GUI</span>
+            <span class="tag">Automation</span>
+        </div>
+    </div>
+</section>
+
+<section id="contacto">
     <h2>Contacto</h2>
     <p><strong>Email:</strong> <a href="mailto:yimmichauta12345@gmail.com">yimmichauta12345@gmail.com</a></p>
     <p><strong>Ciudad:</strong> Bogotá, Colombia</p>
+    <p><a href="https://github.com/yimmichauta12345-commits" target="_blank">GitHub</a></p>
 </section>
+
+<script>
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+}
+
+// Animación
+const cards = document.querySelectorAll(".card");
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0)";
+        }
+    });
+});
+
+cards.forEach(card => {
+    card.style.opacity = 0;
+    card.style.transform = "translateY(30px)";
+    card.style.transition = "0.6s";
+    observer.observe(card);
+});
+</script>
 
 </body>
 </html>
+```
