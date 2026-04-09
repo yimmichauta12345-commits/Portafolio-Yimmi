@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,6 +12,7 @@
             background: #f5f7fb;
             color: #1f2937;
             scroll-behavior: smooth;
+            transition: background 0.3s, color 0.3s;
         }
 
         header {
@@ -94,6 +94,7 @@
             padding: 8px 12px;
             border-radius: 6px;
             text-decoration: none;
+            cursor: pointer;
         }
 
         /* DARK MODE */
@@ -108,6 +109,31 @@
 
         .dark .navbar {
             background: #1e293b;
+        }
+
+        /* FIXES DARK MODE */
+        .dark h1,
+        .dark h2,
+        .dark h3 {
+            color: #f9fafb;
+        }
+
+        .dark .navbar a {
+            color: #e5e7eb;
+        }
+
+        .dark .tag {
+            background: #334155;
+            color: #c7d2fe;
+        }
+
+        .dark .btn {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .dark h2 {
+            border-left: 5px solid #60a5fa;
         }
     </style>
 </head>
@@ -125,7 +151,9 @@
     <h1>Portafolio Profesional — Yimmi Chautá</h1>
     <p>Data Analyst / Data Science Enthusiast</p>
 
-    <button onclick="toggleDarkMode()" class="btn">Modo oscuro</button>
+    <button onclick="toggleDarkMode()" class="btn" id="themeBtn">
+        Modo oscuro
+    </button>
 </header>
 
 <section id="sobre">
@@ -230,6 +258,14 @@
 <script>
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
+
+    const btn = document.getElementById("themeBtn");
+
+    if (document.body.classList.contains("dark")) {
+        btn.textContent = "Modo claro";
+    } else {
+        btn.textContent = "Modo oscuro";
+    }
 }
 
 // Animación
@@ -254,4 +290,3 @@ cards.forEach(card => {
 
 </body>
 </html>
-```
